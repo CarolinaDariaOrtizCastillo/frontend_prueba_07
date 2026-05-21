@@ -7,7 +7,7 @@ import { Formula } from '../../../core/models/formula.model';
   providedIn: 'root',
 })
 export class FormulaService {
-  private apiUrl = 'http://localhost:2000/formula';
+  private apiUrl = 'http://localhost:8085/formula';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -28,16 +28,16 @@ export class FormulaService {
 
   // CREAR FÓRMULA
   createFormula(formula: Omit<Formula, 'formulaId' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'restoredAt'>): Observable<Formula> {
-    return this.http.post<Formula>(this.apiUrl, formula, this.httpOptions);
+    return this.http.post<Formula>(`${this.apiUrl}/save`, formula, this.httpOptions);
   }
 
   // ACTUALIZAR FÓRMULA
   updateFormula(id: number, formula: Partial<Formula>): Observable<Formula> {
-    return this.http.put<Formula>(`${this.apiUrl}/${id}`, formula, this.httpOptions);
+    return this.http.put<Formula>(`${this.apiUrl}/update/${id}`, formula, this.httpOptions);
   }
 
   // ELIMINAR FÓRMULA (soft delete)
   deleteFormula(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.patch<void>(`${this.apiUrl}/delete/${id}`, {});
   }
 }

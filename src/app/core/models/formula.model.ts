@@ -3,8 +3,8 @@ export interface Formula {
   name: string;
   description?: string;
   standardBatch: number;
-  productionTime?: string;
-  status: number;
+  productionTime: number;
+  estado: boolean;
   createdAt?: string | Date;
   updatedAt?: string | Date;
   deletedAt?: string | Date | null;

@@ -7,7 +7,7 @@ import { Insumo } from '../../../core/models/product.model';
   providedIn: 'root',
 })
 export class InsumoService {
-  private apiUrl = 'http://localhost:2000/v1/api/insumo';
+  private apiUrl = 'http://localhost:8085/v1/api/insumo';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -33,11 +33,11 @@ export class InsumoService {
 
   // ACTUALIZAR INSUMO
   updateInsumo(id: number, insumo: Partial<Insumo>): Observable<Insumo> {
-    return this.http.put<Insumo>(`${this.apiUrl}/${id}`, insumo, this.httpOptions);
+    return this.http.put<Insumo>(`${this.apiUrl}/update/${id}`, insumo, this.httpOptions);
   }
 
   // ELIMINAR INSUMO (soft delete)
   deleteInsumo(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.patch<void>(`${this.apiUrl}/delete/${id}`, {});
   }
 }

@@ -7,7 +7,7 @@ import { Cliente } from '../../../core/models/cliente.model';
   providedIn: 'root',
 })
 export class ClienteService {
-  private apiUrl = 'http://localhost:2000/client';
+  private apiUrl = 'http://localhost:8085/client';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -28,16 +28,16 @@ export class ClienteService {
 
   // CREAR CLIENTE
   createCliente(cliente: Omit<Cliente, 'clientId' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'restoredAt'>): Observable<Cliente> {
-    return this.http.post<Cliente>(this.apiUrl, cliente, this.httpOptions);
+    return this.http.post<Cliente>(`${this.apiUrl}/save`, cliente, this.httpOptions);
   }
 
   // ACTUALIZAR CLIENTE
   updateCliente(id: number, cliente: Partial<Cliente>): Observable<Cliente> {
-    return this.http.put<Cliente>(`${this.apiUrl}/${id}`, cliente, this.httpOptions);
+    return this.http.put<Cliente>(`${this.apiUrl}/update/${id}`, cliente, this.httpOptions);
   }
 
   // ELIMINAR CLIENTE (soft delete)
   deleteCliente(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.patch<void>(`${this.apiUrl}/delete/${id}`, {});
   }
 }

@@ -33,13 +33,13 @@
 
           <div class="form-group">
             <label>Tiempo de Producción:</label>
-            <input type="text" formControlName="productionTime" placeholder="Ej: 24 días">
+            <input type="number" formControlName="productionTime" placeholder="24" step="1">
             <small *ngIf="form.get('productionTime')?.invalid && form.get('productionTime')?.touched">Requerido</small>
           </div>
 
           <div class="form-group checkbox">
-            <input type="checkbox" id="status" formControlName="status">
-            <label for="status">Estado (Activo)</label>
+            <input type="checkbox" id="estado" formControlName="estado">
+            <label for="estado">Estado (Activo)</label>
           </div>
 
           <div class="form-actions">
@@ -75,8 +75,8 @@
               <td>{{ f.standardBatch }}</td>
               <td>{{ f.productionTime }}</td>
               <td>
-                <span class="estado" [ngClass]="{ 'activo': f.status === 1, 'inactivo': f.status !== 1 }">
-                  {{ f.status === 1 ? 'Activo' : 'Inactivo' }}
+                <span class="estado" [class.activo]="f.estado" [class.inactivo]="!f.estado">
+                  {{ f.estado ? 'Activo' : 'Inactivo' }}
                 </span>
               </td>
               <td class="acciones">

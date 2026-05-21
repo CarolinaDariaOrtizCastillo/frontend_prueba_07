@@ -2,15 +2,12 @@ export interface Cliente {
   clientId: number;
   name: string;
   lastName: string;
-  typeClient: string;
-  businessName?: string;
   documentType: string;
   documentNumber: string;
-  cellphoneNumber: string;
+  phone: string;
   email?: string;
-  addressId?: number;
-  membershipDate?: string | Date;
-  status: number;
+  registrationDate?: string | Date;
+  estado: boolean;
   createdAt?: string | Date;
   updatedAt?: string | Date;
   deletedAt?: string | Date | null;

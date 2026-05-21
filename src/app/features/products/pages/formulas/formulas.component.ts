@@ -26,8 +26,8 @@ export class FormulasComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required]],
       standardBatch: ['', [Validators.required, Validators.min(0.1)]],
-      productionTime: ['', [Validators.required]],
-      status: [1]
+      productionTime: ['', [Validators.required, Validators.min(1)]],
+      estado: [true]
     });
   }
 
@@ -40,7 +40,7 @@ export class FormulasComponent implements OnInit {
     this.error = '';
     this.formulaService.getFormulas().subscribe({
       next: (data) => {
-        this.formulas = data.filter(f => f.status === 1);
+        this.formulas = data.filter(f => f.estado);
         this.isLoading = false;
         this.cdr.detectChanges();
       },
@@ -60,8 +60,16 @@ export class FormulasComponent implements OnInit {
     }
 
     const val = this.form.value;
+    const payload = {
+      name: val.name,
+      description: val.description,
+      standardBatch: Number(val.standardBatch),
+      productionTime: Number(val.productionTime),
+      estado: Boolean(val.estado)
+    };
+
     if (this.isEditing && this.selectedFormula) {
-      this.formulaService.updateFormula(this.selectedFormula.formulaId, val).subscribe({
+      this.formulaService.updateFormula(this.selectedFormula.formulaId, payload).subscribe({
         next: () => {
           this.cancelForm();
           this.loadData();
@@ -72,7 +80,7 @@ export class FormulasComponent implements OnInit {
         }
       });
     } else {
-      this.formulaService.createFormula(val).subscribe({
+      this.formulaService.createFormula(payload).subscribe({
         next: () => {
           this.cancelForm();
           this.loadData();
@@ -94,7 +102,7 @@ export class FormulasComponent implements OnInit {
       description: f.description,
       standardBatch: f.standardBatch,
       productionTime: f.productionTime,
-      status: f.status
+      estado: f.estado
     });
     this.cdr.detectChanges();
   }
@@ -112,7 +120,7 @@ export class FormulasComponent implements OnInit {
   }
 
   cancelForm(): void {
-    this.form.reset({ status: 1 });
+    this.form.reset({ estado: true });
     this.isEditing = false;
     this.selectedFormula = null;
   }

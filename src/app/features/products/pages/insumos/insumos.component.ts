@@ -82,28 +82,20 @@ export class InsumosComponent implements OnInit {
     const formValue = this.form.value;
     
     // Convertir fecha al formato ISO (YYYY-MM-DD) que espera el backend
-    let fechaCaducidad = formValue.fechaCaducidad;
-    if (fechaCaducidad && typeof fechaCaducidad === 'string' && fechaCaducidad !== '') {
-      // Asegurar que la fecha esté en formato ISO
-      const fechaDate = new Date(fechaCaducidad);
-      if (!isNaN(fechaDate.getTime())) {
-        fechaCaducidad = fechaDate.toISOString().split('T')[0];
-      } else {
-        fechaCaducidad = null;
-      }
-    } else {
-      fechaCaducidad = null;
+    let fechaCaducidad = null;
+    if (formValue.fechaCaducidad && typeof formValue.fechaCaducidad === 'string' && formValue.fechaCaducidad !== '') {
+      fechaCaducidad = formValue.fechaCaducidad;
     }
     
     // Preparar los datos para enviar al backend
     const insumoData = {
-      nombre: formValue.nombre.substring(0, 20).trim(),
+      nombre: formValue.nombre.trim(),
       stockActual: Number(formValue.stockActual),
       stockMinimo: Number(formValue.stockMinimo),
-      medida: formValue.medida.toUpperCase().substring(0, 2),
-      fechaCaducidad: formValue.fechaCaducidad || null,
+      medida: formValue.medida.toUpperCase(),
+      fechaCaducidad: fechaCaducidad,
       ubicacion: formValue.ubicacion.trim(),
-      estado: true
+      estado: formValue.estado
     };
 
     console.log('Enviando al backend:', insumoData);
