@@ -1,0 +1,175 @@
+<div class="insumos-container">
+  <div class="insumos-header">
+    <h2>Gestión de Insumos Agrícolas</h2>
+  </div>
+
+  <div class="content">
+    <!-- Mensaje de Error -->
+    <div *ngIf="error" class="alert alert-error">{{ error }}</div>
+
+    <div class="layout-grid">
+      <!-- Formulario (Izquierda) -->
+      <div class="form-section">
+        <h3>{{ isEditing ? 'Editar Insumo' : 'Crear Nuevo Insumo' }}</h3>
+        <form [formGroup]="form" (ngSubmit)="saveInsumo()">
+          <div class="form-group">
+            <label for="nombre">Nombre del Insumo:</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              formControlName="nombre"
+              placeholder="Ej: Fertilizante NPK"
+            >
+            <small *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">
+              El nombre es requerido
+            </small>
+            <small *ngIf="form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched">
+              Mínimo 3 caracteres
+            </small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="stockActual">Stock Actual:</label>
+              <input 
+                type="number" 
+                id="stockActual" 
+                formControlName="stockActual"
+                placeholder="0.00"
+                step="0.01"
+              >
+              <small *ngIf="form.get('stockActual')?.hasError('required') && form.get('stockActual')?.touched">
+                El stock actual es requerido
+              </small>
+              <small *ngIf="form.get('stockActual')?.hasError('min') && form.get('stockActual')?.touched">
+                El stock debe ser mayor o igual a 0
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="stockMinimo">Stock Mínimo:</label>
+              <input 
+                type="number" 
+                id="stockMinimo" 
+                formControlName="stockMinimo"
+                placeholder="0.00"
+                step="0.01"
+              >
+              <small *ngIf="form.get('stockMinimo')?.hasError('required') && form.get('stockMinimo')?.touched">
+                El stock mínimo es requerido
+              </small>
+              <small *ngIf="form.get('stockMinimo')?.hasError('min') && form.get('stockMinimo')?.touched">
+                El stock mínimo debe ser mayor o igual a 0
+              </small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="medida">Medida:</label>
+              <input 
+                type="text" 
+                id="medida" 
+                formControlName="medida"
+                placeholder="Ej: kg, lt, u"
+              >
+              <small *ngIf="form.get('medida')?.hasError('required') && form.get('medida')?.touched">
+                La medida es requerida
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="fechaCaducidad">Fecha de Caducidad:</label>
+              <input 
+                type="date" 
+                id="fechaCaducidad" 
+                formControlName="fechaCaducidad"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ubicacion">Ubicación:</label>
+            <input 
+              type="text" 
+              id="ubicacion" 
+              formControlName="ubicacion"
+              placeholder="Ej: Bodega A, Almacén"
+            >
+            <small *ngIf="form.get('ubicacion')?.hasError('required') && form.get('ubicacion')?.touched">
+              La ubicación es requerida
+            </small>
+            <small *ngIf="form.get('ubicacion')?.hasError('minlength') && form.get('ubicacion')?.touched">
+              Mínimo 3 caracteres
+            </small>
+          </div>
+
+          <div class="form-group checkbox">
+            <input 
+              type="checkbox" 
+              id="estado" 
+              formControlName="estado"
+            >
+            <label for="estado">Estado (Activo)</label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-success">
+              {{ isEditing ? 'Actualizar Insumo' : 'Crear Insumo' }}
+            </button>
+            <button type="button" (click)="cancelForm()" class="btn btn-cancel">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de Insumos (Derecha) -->
+      <div class="list-section">
+        <h3>Lista de Insumos</h3>
+
+        <div *ngIf="isLoading" class="loading">Cargando...</div>
+        
+        <table class="insumos-table" *ngIf="insumos.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Stock Actual</th>
+              <th>Stock Mínimo</th>
+              <th>Medida</th>
+              <th>Ubicación</th>
+              <th>Caducidad</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let insumo of insumos">
+              <td>{{ insumo.idInsumo }}</td>
+              <td>{{ insumo.nombre }}</td>
+              <td>{{ insumo.stockActual }}</td>
+              <td>{{ insumo.stockMinimo }}</td>
+              <td>{{ insumo.medida }}</td>
+              <td>{{ insumo.ubicacion }}</td>
+              <td>{{ formatDate(insumo.fechaCaducidad) }}</td>
+              <td>
+                <span class="estado" [ngClass]="{ activo: insumo.estado, inactivo: !insumo.estado }">
+                  {{ insumo.estado ? 'Activo' : 'Inactivo' }}
+                </span>
+              </td>
+              <td class="acciones">
+                <button (click)="editInsumo(insumo)" class="btn btn-edit">Editar</button>
+                <button (click)="deleteInsumo(insumo.idInsumo)" class="btn btn-delete">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="empty-message" *ngIf="insumos.length === 0 && !isLoading">
+          <p>No hay insumos registrados. Crea uno nuevo para comenzar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

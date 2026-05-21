@@ -1,0 +1,119 @@
+<div class="products-container">
+
+    <section class="products-intro">
+        <h1 class="intro-title">Línea foliar especializada para el máximo rendimiento de tu cultivo</h1>
+        <p class="intro-description">
+            Desarrollamos soluciones 100% orgánicas y libres de químicos, diseñadas para acompañar cada etapa del ciclo
+            vegetativo, estimular la nutrición desde la raíz y asegurar resultados reales en tamaño, volumen y peso al
+            cosechar.
+        </p>
+        <div class="intro-image-container">
+            <div class="intro-image-bg"></div>
+        </div>
+    </section>
+
+    <section class="catalog-section">
+        <h2 class="section-title">NUESTROS PRODUCTOS</h2>
+
+        <div class="products-grid">
+
+            <div class="product-card">
+                <h3 class="product-name">Ácido Fúlbico</h3>
+                <ul class="product-benefits">
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <strong>Desarrollo y Estimulación Vegetal.</strong>
+                            <p>Diseñado especialmente para las primeras etapas del cultivo. Promueve un crecimiento
+                                sostenido y robusto, incrementando notablemente el follaje y brote de nuevas zonas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <p>A mayor follaje, se multiplica exponencialmente la capacidad de la planta para cargar y
+                                nutrir los futuros frutos.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-name">Algas Marinas</h3>
+                <ul class="product-benefits">
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <strong>Nutrición Radicular y Vitalidad.</strong>
+                            <p>Actúa directamente sobre la raíz. Estimula la absorción óptima de nutrientes presentes en
+                                el suelo permitiendo que la planta crezca vigorosa, regular y con un color verde intenso
+                                y saludable.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <p>Fortalece la base del cultivo para que pueda sostener el peso de una campaña exitosa.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-name">Calcio Boro</h3>
+                <ul class="product-benefits">
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <strong>Consistencia y Consolidación del Fruto.</strong>
+                            <p>Fórmula clave para la etapa de amarre y formación del fruto. Asegura paredes celulares
+                                fuertes que previenen agrietamientos y caídas prematuras, guiando los nutrientes de la
+                                planta directamente hasta la estructura final.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <p>Protege la inversión asegurando frutos uniformes y sanos.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-name">Potasio y Magnesio</h3>
+                <ul class="product-benefits">
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <strong>Engorde, Peso y Volumen Comercial.</strong>
+                            <p>Nutrientes esenciales activos en la fase final de producción. Ayudan a que el fruto jale
+                                de manera eficiente las reservas de la planta, logrando un llenado compacto, pesado y
+                                homogéneo.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">+</span>
+                        <div class="benefit-text">
+                            <p>Esencial en la balanza para que el agricultor pueda defender un precio favorable en el
+                                mercado.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="value-section">
+        <h2 class="value-title">¿POR QUÉ ELEGIR NUESTRAS FÓRMULAS?</h2>
+
+        <div class="value-grid">
+            <div class="value-card" *ngFor="let pillar of valuePillars">
+                <h3 class="value-card-title">{{ pillar.title }}</h3>
+                <p class="value-card-description">{{ pillar.description }}</p>
+            </div>
+        </div>
+    </section>
+
+</div>

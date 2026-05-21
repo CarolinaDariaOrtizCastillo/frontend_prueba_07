@@ -1,0 +1,84 @@
+<section class="hero-container">
+  
+  <div class="hero-banner">
+    <div class="hero-overlay-text">
+      <h1>CALIDAD EN LO</h1>
+      <h2 class="highlight-text">ORGÁNICO</h2>
+    </div>
+  </div>
+
+  <div class="hero-info-footer">
+    <p>
+      Nutrición foliar de alta confianza que garantiza el desarrollo, 
+      peso y máximo rendimiento de tu cultivo.
+    </p>
+  </div>
+
+</section>
+
+<section class="benefits-container">
+  
+  <div class="top-action">
+    <a routerLink="/productos" class="btn-orange">Conoce nuestros productos</a>
+  </div>
+
+  <div class="intro-section">
+    <h2 class="title-light">¿SABES CUÁNDO UN PRODUCTO REALMENTE FUNCIONA?</h2>
+    <h3 class="title-bold">Rompemos la desconfianza del campo con resultados reales.</h3>
+    
+    <div class="info-cards-grid">
+      <div class="info-card">
+        <p>
+          Sabemos que el campo es de palabra y que tu inversión es lo PRIMERO.<br>
+          Por eso, no damos recetas por teléfono, vamos directo a tu terreno, 
+          aplicamos la FÓRMULA y hacemos el seguimiento paso a paso contigo.*
+        </p>
+      </div>
+      <div class="info-card">
+        <p>
+          En AGRODELCROIX nuestro compromiso real empieza después de la venta.<br>
+          Nos aseguramos de que cada bidón rinda lo que tu tierra merece.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <h2 class="title-light">RESULTADOS VISIBLES EN TU COSECHA</h2>
+    <h4 class="subtitle-bold">
+      El agricultor con experiencia nota el verdadero cambio con el paso de las semanas en tres puntos clave:
+    </h4>
+
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let benefit of keyBenefits">
+        <div class="card-content">
+          <span class="card-title">{{ benefit.title }}</span>
+          <span class="card-highlight">{{ benefit.highlight }}</span>
+          <hr class="card-divider">
+          <p class="card-description">{{ benefit.description }}</p>
+        </div>
+        
+        <div class="circle-image-container">
+          <div class="circle-image-bg" [ngClass]="benefit.title.toLowerCase().replace(' ', '-')"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="contact-cta-container">
+  
+  <h2 class="cta-title">¿LISTO PARA ASEGURAR EL ÉXITO DE TU CAMPAÑA?</h2>
+  
+  <p class="cta-subtitle">
+    Permítenos visitarte directamente en tu terreno sin ningún costo ni compromiso inicial.
+  </p>
+
+  <div class="cta-action">
+    <a routerLink="/contacto" class="btn-contact-orange">
+      CONTÁCTANOS
+    </a>
+  </div>
+
+</section>

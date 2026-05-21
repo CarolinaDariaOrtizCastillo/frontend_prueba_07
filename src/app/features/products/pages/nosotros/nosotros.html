@@ -1,0 +1,45 @@
+<section class="about-container">
+
+    <div class="history-section">
+        <h2 class="about-title">NUESTRA HISTORIA</h2>
+
+        <div class="history-content">
+            <div class="history-image-container">
+                <div class="history-img-bg"></div>
+            </div>
+
+            <div class="history-text">
+                <p>
+                    AGRODELCROIX nació hace 8 años en los valles de Ica a partir de una meta clara entre dos amigos,
+                    Daniel Muchaypiña y Felipe de la Cruz (de cuyo apellido surge el nombre Delcroix).<br><br>
+                    El proyecto inició con el propósito de generar una alternativa real y competitiva dentro del
+                    mercado agrícola, enfocada por completo en la nutrición foliar de alta calidad.<br><br>
+                    Desde el primer día, entendimos que el agricultor no busca promesas de oficina, sino un rendimiento
+                    tangible que proteja su inversión de meses. Por eso, dejamos atrás los escritorios para validar cada
+                    una de nuestras fórmulas orgánicas directamente en las chacras, asegurando que cada desarrollo
+                    vegetal
+                    sea transparente, libre de químicos y enfocado en resultados reales en peso y volumen.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pillars-section">
+        <div class="pillar-row" *ngFor="let pillar of companyPillars">
+
+            <h3 class="pillar-title">{{ pillar.title }}</h3>
+
+            <div class="pillar-body">
+                <div class="pillar-circle-icon">
+                    <div class="pillar-icon" [ngClass]="pillar.iconClass"></div>
+                </div>
+
+                <div class="pillar-card">
+                    <p>{{ pillar.content }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>

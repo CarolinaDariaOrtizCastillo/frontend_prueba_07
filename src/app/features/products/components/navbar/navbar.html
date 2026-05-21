@@ -1,0 +1,53 @@
+<nav class="navbar-main">
+  <div class="navbar-brand">
+    AGRODELCROIX
+  </div>
+
+  <div class="navbar-links">
+    <a routerLink="/inicio" routerLinkActive="active-link">INICIO</a>
+    <a routerLink="/nosotros" routerLinkActive="active-link">NOSOTROS</a>
+    <a routerLink="/productos" routerLinkActive="active-link">PRODUCTOS</a>
+    <a routerLink="/respaldo" routerLinkActive="active-link">RESPALDO</a>
+    <a routerLink="/soporte" routerLinkActive="active-link">SOPORTE</a>
+  </div>
+
+  <div class="user-profile-container">
+    <button class="user-avatar-btn" (click)="toggleMenuUsuario($event)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="user-icon">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+      </svg>
+    </button>
+
+    <div class="user-dropdown-menu" *ngIf="mostrarMenuUsuario" (click)="$event.stopPropagation()">
+      <div class="dropdown-header">
+        <span class="user-welcome">Bienvenido</span>
+        <strong class="user-role">AgroTecno Admin</strong>
+      </div>
+      
+      <hr class="dropdown-divider">
+
+      <ul class="dropdown-list">
+        <li>
+          <a routerLink="/dashboard" (click)="cerrarMenu()">
+            <span class="menu-text">Dashboard General</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/clientes" (click)="cerrarMenu()">
+            <span class="menu-text">Gestionar Clientes (CRUD)</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/insumos" (click)="cerrarMenu()">
+            <span class="menu-text">Control de Insumos (CRUD)</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/formulas" (click)="cerrarMenu()">
+            <span class="menu-text">Registro de Fórmulas (CRUD)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

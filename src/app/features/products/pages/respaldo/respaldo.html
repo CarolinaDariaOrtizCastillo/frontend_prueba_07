@@ -1,0 +1,77 @@
+<div class="respaldo-container">
+
+    <section class="respaldo-intro">
+        <h1 class="intro-title">NUESTRA POLÍTICA DE RESPALDO</h1>
+        <h2 class="intro-subtitle">Un compromiso real que empieza después de la venta</h2>
+
+        <div class="intro-content">
+            <p class="intro-text">
+                En el campo, las palabras se las lleva el viento si no hay resultados.
+                Por eso, nuestro servicio posventa se basa en un acompañamiento técnico 100% presencial
+                y personalizado en tu propia chacra para garantizar el éxito de tu campaña.
+            </p>
+            <div class="intro-handshake-bg"></div>
+        </div>
+    </section>
+
+    <section class="monitoring-section">
+        <h3 class="section-block-title">Monitoreo técnico personalizado paso a paso</h3>
+
+        <div class="monitoring-grid">
+            <div class="monitoring-card">
+                <h4 class="card-inner-title">Asistencia en el terreno</h4>
+                <p class="card-inner-desc">Vamos directamente hacia tu terreno para ayudarte en el proceso y asegurarnos
+                    de que la dosificación y la aplicación foliar se realicen de manera completamente correcta.</p>
+            </div>
+
+            <div class="monitoring-card">
+                <h4 class="card-inner-title">Coordinación de aplicación</h4>
+                <p class="card-inner-desc">Cuando adquieres un producto, coordinamos el día y la hora exacta en la que
+                    realizarás la aplicación en tu cultivo.</p>
+            </div>
+
+            <div class="monitoring-card">
+                <h4 class="card-inner-title">Evaluación de resultados</h4>
+                <p class="card-inner-desc">Evaluamos juntos la reacción de la planta, tomamos registro fotográfico y
+                    comprobamos visualmente cómo empieza a mejorar el follaje y fortalecer el tallo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contingency-section">
+        <h3 class="section-block-title">Respuestas rápidas ante cualquier inconveniente</h3>
+
+        <div class="contingency-grid">
+            <div class="contingency-card dark-green-card">
+                <h4 class="card-inner-title">Atención directa</h4>
+                <p class="card-inner-desc">Al ser un negocio atendido por sus propios fundadores, las respuestas ante
+                    cualquier duda o reclamo son inmediatas, sin burocracia ni llamadas en espera. "Trato directo, de
+                    productor a productor: sin intermediarios, sin rodeos y en tu propia tierra."</p>
+            </div>
+
+            <div class="contingency-card dark-green-card">
+                <h4 class="card-inner-title">Garantía ante contingencias</h4>
+                <p class="card-inner-desc">Comprendemos perfectamente el comportamiento de los productos orgánicos
+                    vivos. Para nosotros solucionar tu problema y asegurar que vuelvas a usar nuestros productos con
+                    tranquilidad es lo primero.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="communication-section">
+        <h3 class="communication-subtitle-orange">Comunicación abierta y visitas continuas</h3>
+
+        <div class="communication-grid">
+            <div class="orange-card" *ngFor="let benefit of keyBenefits">
+                <h4 class="orange-card-title">{{ benefit.title }}</h4>
+                <p class="orange-card-desc">{{ benefit.description }}</p>
+            </div>
+        </div>
+
+        <p class="closing-footer-text">
+            Nos quedamos a tu lado durante toda la campaña para asegurar que tu planta se mantenga vigorosa y logres los
+            kilos reales que tu inversión merece.
+        </p>
+    </section>
+
+</div>

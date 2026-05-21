@@ -1,0 +1,43 @@
+/* Contenedor general del footer */
+.main-footer {
+  background-color: #2b3d1b; /* Verde oscuro corporativo idéntico al diseño */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Envoltura interna para alinear el contenido */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Estilos comunes para los textos */
+.footer-text-left, 
+.footer-text-right {
+  color: #eef2e6; /* El tono crema/verde claro para el texto */
+  font-size: 0.95rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Línea vertical divisoria (opcional si deseas replicar el separador visual) */
+.footer-divider {
+  border-left: 1px solid rgba(238, 242, 230, 0.4);
+  height: 20px;
+  margin: 0 20px;
+  display: none; /* Oculto por defecto ya que space-between separa los bloques naturalmente */
+}
+
+/* --- Responsive para pantallas móviles --- */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

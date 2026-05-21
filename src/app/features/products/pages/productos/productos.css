@@ -1,0 +1,209 @@
+/* Contenedor Base de la Página */
+.products-container {
+  background-color: #eef2e6;
+  padding: 60px 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. SECCIÓN INTRODUCTORIA
+   ========================================================================== */
+.products-intro {
+  max-width: 850px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro-title {
+  color: #2b3d1b; 
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.3;
+  margin: 0 0 20px 0;
+}
+
+.intro-description {
+  color: #121d0a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+}
+
+.intro-image-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Inyección de la imagen central de las manos desde CSS */
+.intro-image-bg {
+  width: 180px;
+  height: 150px;
+  background-image: url('../../../../../assets/producto.png'); /* Verifica el nombre exacto de tu archivo en assets */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ==========================================================================
+   2. SECCIÓN CATÁLOGO (TARJETAS VERDES)
+   ========================================================================== */
+.catalog-section {
+  width: 100%;
+  max-width: 1050px;
+  margin-bottom: 80px;
+}
+
+.section-title {
+  color: #2b3d1b;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.5px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.product-card {
+  background-color: #cadbbf; 
+  border-radius: 20px;
+  padding: 35px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.product-name {
+  color: #2b3d1b;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 25px 0;
+}
+
+.product-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.bullet-icon {
+  background-color: #2b3d1b;
+  color: #cadbbf;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefit-text {
+  color: #121d0a;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.benefit-text strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.benefit-text p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. PROPUESTA DE VALOR (TARJETAS DORADAS / NARANJAS)
+   ========================================================================== */
+.value-section {
+  width: 100%;
+  max-width: 1050px;
+}
+
+.value-title {
+  color: #df9626; 
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.5px;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.value-card {
+  background-color: #f1b351; 
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.value-card-title {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.value-card-description {
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify; 
+}
+
+/* ==========================================================================
+   4. SISTEMA RESPONSIVE
+   ========================================================================== */
+@media (max-width: 850px) {
+  .products-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+  
+  .intro-title { font-size: 1.6rem; }
+  .section-title, .value-title { font-size: 1.8rem; }
+  .product-name { font-size: 1.6rem; }
+  
+  .intro-image-bg {
+    width: 150px;
+    height: 125px;
+  }
+}

@@ -1,0 +1,59 @@
+<header class="main-header">
+  <div class="logo-container">
+    <a routerLink="/" class="logo-text">AGRODELCROIX</a>
+  </div>
+
+  <nav class="nav-menu">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">INICIO</a>
+    <a routerLink="/nosotros" routerLinkActive="active" class="nav-item">NOSOTROS</a>
+    <a routerLink="/productos" routerLinkActive="active" class="nav-item">PRODUCTOS</a>
+    <a routerLink="/respaldo" routerLinkActive="active" class="nav-item">RESPALDO</a>
+    <a routerLink="/soporte" routerLinkActive="active" class="nav-item">SOPORTE</a>
+  </nav>
+
+  <div class="user-container">
+    <button class="user-profile-btn" aria-label="Perfil de usuario" (click)="toggleMenuUsuario($event)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="user-icon">
+        <path fill-rule="evenodd"
+          d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12c0 2.622 1.037 5.003 2.716 6.756l.044.045A10.73 10.73 0 0 1 12 16.5a10.73 10.73 0 0 1 7.02 2.553l.03-.03-.016-.026ZM12 15.75c-2.483 0-4.693.993-6.284 2.592A9.712 9.712 0 0 0 12 21.75a9.712 9.712 0 0 0 6.284-3.408A6.732 6.732 0 0 0 12 15.75ZM12 4.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"
+          clip-rule="evenodd" />
+      </svg>
+    </button>
+
+    <div class="user-dropdown-menu" *ngIf="mostrarMenuUsuario" (click)="$event.stopPropagation()">
+      <div class="dropdown-header">
+        <span class="user-welcome">Bienvenido</span>
+        <strong class="user-role">AgroTecno Admin</strong>
+      </div>
+
+      <hr class="dropdown-divider">
+
+      <ul class="dropdown-list">
+        <li>
+          <a routerLink="/dashboard" (click)="cerrarMenu()">
+            <span class="menu-icon">📊</span>
+            <span class="menu-text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/clientes" (click)="cerrarMenu()">
+            <span class="menu-icon">👥</span>
+            <span class="menu-text">Clientes (CRUD)</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/insumos" (click)="cerrarMenu()">
+            <span class="menu-icon">📦</span>
+            <span class="menu-text">Insumos (CRUD)</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/formulas" (click)="cerrarMenu()">
+            <span class="menu-icon">🧪</span>
+            <span class="menu-text">Fórmulas (CRUD)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

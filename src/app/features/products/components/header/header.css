@@ -1,0 +1,154 @@
+/* ==========================================================================
+   ESTILOS DE TU HEADER ORIGINAL (Mantenidos y asegurados)
+   ========================================================================== */
+.main-header {
+  background-color: #314922; /* Verde oscuro corporativo */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo-text {
+  color: #f1b351; /* Dorado/Naranja */
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-item {
+  color: #2b3d1b;
+  background-color: #eef2e6;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 10px 22px;
+  border-radius: 12px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover, 
+.nav-item.active {
+  background-color: #f1b351;
+  color: #ffffff;
+}
+
+/* --- Ajuste Clave en tu Botón Perfil --- */
+.user-container {
+  position: relative; /* ¡CLAVE! Hace que el dropdown se alinee con este contenedor */
+}
+
+.user-profile-btn {
+  background-color: #eef2e6;
+  border: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 0;
+}
+
+.user-profile-btn:hover {
+  transform: scale(1.05);
+  background-color: #ffffff;
+}
+
+.user-icon {
+  width: 26px;
+  height: 26px;
+  color: #2b3d1b;
+}
+
+/* ==========================================================================
+   ESTILOS AGREGADOS PARA EL POP-UP DROPDOWN (DASHBOARD NUEVO)
+   ========================================================================== */
+.user-dropdown-menu {
+  position: absolute;
+  top: 55px; /* Lo coloca justo abajo del botón circular de usuario */
+  right: 0;  /* Alineado al borde derecho del botón */
+  background-color: #eef2e6; /* Fondo verde claro idéntico a las tarjetas */
+  border: 4px solid #668252; /* Borde grueso verde oliva militar */
+  border-radius: 20px;
+  width: 240px;
+  padding: 18px 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  animation: dropdownSlide 0.18s ease-out;
+}
+
+@keyframes dropdownSlide {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Cabecera del menú */
+.dropdown-header {
+  display: flex;
+  flex-direction: column;
+  padding-left: 6px;
+  margin-bottom: 8px;
+}
+
+.user-welcome {
+  color: #839773;
+  font-size: 0.8rem;
+}
+
+.user-role {
+  color: #2b3d1b;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 2px solid #668252;
+  margin: 0 0 12px 0;
+}
+
+/* Lista de enlaces a tus vistas CRUD */
+.dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown-list li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background-color: #ffffff; /* Píldoras blancas como tus campos de texto */
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #121d0a;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.dropdown-list li a:hover {
+  background-color: #f1b351; /* Cambia a tu color naranja corporativo en hover */
+  color: #ffffff;
+}
+
+.menu-icon {
+  font-size: 1.05rem;
+}

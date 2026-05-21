@@ -1,0 +1,96 @@
+<div class="clientes-container">
+  <div class="clientes-header">
+    <h2>Gestión de Fórmulas de Producción</h2>
+  </div>
+
+  <div class="content">
+    <!-- Mensaje de Error -->
+    <div *ngIf="error" class="alert alert-error">{{ error }}</div>
+
+    <div class="layout-grid">
+      <!-- Formulario (Izquierda) -->
+      <div class="form-section">
+        <h3>{{ isEditing ? 'Editar Fórmula' : 'Crear Nueva Fórmula' }}</h3>
+        <form [formGroup]="form" (ngSubmit)="saveFormula()">
+
+          <div class="form-group">
+            <label>Nombre de la Fórmula:</label>
+            <input type="text" formControlName="name" placeholder="Ej: Calcio - Boro">
+            <small *ngIf="form.get('name')?.invalid && form.get('name')?.touched">Mínimo 3 caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción:</label>
+            <textarea formControlName="description" placeholder="Describa la fórmula"></textarea>
+            <small *ngIf="form.get('description')?.invalid && form.get('description')?.touched">La descripción es requerida</small>
+          </div>
+
+          <div class="form-group">
+            <label>Lote Estándar:</label>
+            <input type="number" formControlName="standardBatch" placeholder="Cantidad" step="0.01">
+            <small *ngIf="form.get('standardBatch')?.invalid && form.get('standardBatch')?.touched">Mínimo 0.1</small>
+          </div>
+
+          <div class="form-group">
+            <label>Tiempo de Producción:</label>
+            <input type="text" formControlName="productionTime" placeholder="Ej: 24 días">
+            <small *ngIf="form.get('productionTime')?.invalid && form.get('productionTime')?.touched">Requerido</small>
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" id="status" formControlName="status">
+            <label for="status">Estado (Activo)</label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-success">
+              {{ isEditing ? 'Actualizar Fórmula' : 'Crear Fórmula' }}
+            </button>
+            <button type="button" (click)="cancelForm()" class="btn btn-cancel">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de Fórmulas (Derecha) -->
+      <div class="list-section">
+        <h3>Lista de Fórmulas</h3>
+
+        <div *ngIf="isLoading" class="loading">Cargando...</div>
+
+        <table class="clientes-table" *ngIf="formulas.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Lote Estándar</th>
+              <th>Tiempo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of formulas">
+              <td>{{ f.formulaId }}</td>
+              <td><strong>{{ f.name }}</strong></td>
+              <td>{{ f.standardBatch }}</td>
+              <td>{{ f.productionTime }}</td>
+              <td>
+                <span class="estado" [ngClass]="{ 'activo': f.status === 1, 'inactivo': f.status !== 1 }">
+                  {{ f.status === 1 ? 'Activo' : 'Inactivo' }}
+                </span>
+              </td>
+              <td class="acciones">
+                <button (click)="editFormula(f)" class="btn btn-edit">Editar</button>
+                <button (click)="deleteFormula(f.formulaId)" class="btn btn-delete">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="empty-message" *ngIf="formulas.length === 0 && !isLoading">
+          <p>No hay fórmulas registradas. Crea una nueva para comenzar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

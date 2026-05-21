@@ -1,0 +1,67 @@
+<div class="soporte-container">
+
+    <h1 class="soporte-title">SOPORTE TÉCNICO</h1>
+
+    <div class="soporte-logo-spatial">
+        <div class="brand-logo-bg"></div>
+    </div>
+
+    <div class="info-card-panel">
+        <p>
+            Canal exclusivo de asistencia y reportes para los administradores de Agrodelcroix.
+            Si experimentas problemas con el sistema de inventarios, el registro de fórmulas o el control de créditos,
+            utiliza los medios de contacto directo a continuación.
+        </p>
+    </div>
+
+    <div class="actions-group">
+
+        <div class="action-block">
+            <h2 class="action-question">¿El sistema no guarda un pedido o hay problemas al actualizar el stock de
+                insumos?</h2>
+            <p class="action-instruction">Reporta el error de inmediato para corregir la base de datos sin afectar los
+                despachos del día.</p>
+            <button class="btn-orange" (click)="reportarAgroTecno()">Reportar Error en AgroTecno</button>
+        </div>
+
+        <div class="action-block">
+            <h2 class="action-question">Asistencia Técnico de Emergencia</h2>
+            <p class="action-instruction">Comunicación directa con el equipo de desarrollo para caídas del sistema,
+                restablecimiento de credenciales de acceso, entre otras consultas.</p>
+            <button class="btn-orange" (click)="abrirSoporteDesarrollador()">Soporte Desarrollador</button>
+        </div>
+
+    </div>
+
+    <div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarSoporteDesarrollador()">
+        <div class="modal-card" (click)="$event.stopPropagation()">
+
+            <h2 class="modal-title">CONTACTO</h2>
+
+            <div class="modal-section">
+                <label class="modal-label">Nombres y Apellidos</label>
+                <div class="modal-field-value">Carolina Ortiz Castillo</div>
+                <div class="modal-field-value">Medalid Chaparro Condeso</div>
+                <div class="modal-field-value">Camilo Moscoso Duran</div>
+            </div>
+
+            <div class="modal-section">
+                <label class="modal-label">Números de teléfono</label>
+                <div class="modal-field-value">914 061 267</div>
+                <div class="modal-field-value">983 594 764</div>
+                <div class="modal-field-value">947 450 383</div>
+            </div>
+
+            <div class="modal-section">
+                <label class="modal-label">Correo Electrónico</label>
+                <div class="modal-field-value text-lowercase">carolina.ortiz&#64;vallegrande.edu.pe</div>
+                <div class="modal-field-value text-lowercase">medalid.chaparro&#64;vallegrande.edu.pe</div>
+                <div class="modal-field-value text-lowercase">camilo.moscoso&#64;vallegrande.edu.pe</div>
+            </div>
+
+            <button class="btn-modal-close" (click)="cerrarSoporteDesarrollador()">CERRAR</button>
+
+        </div>
+    </div>
+
+</div>

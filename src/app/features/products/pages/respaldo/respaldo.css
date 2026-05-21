@@ -1,0 +1,224 @@
+/* Contenedor Base de la Página (Fondo verde claro característico) */
+.respaldo-container {
+  background-color: #eef2e6;
+  padding: 60px 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. CABECERA E INTRODUCCIÓN
+   ========================================================================== */
+.respaldo-intro {
+  max-width: 1050px;
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.intro-title {
+  color: #2b3d1b;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.5px;
+}
+
+.intro-subtitle {
+  color: #df9626; /* Dorado corporativo */
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: left;
+}
+
+.intro-text {
+  color: #121d0a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex: 1;
+  margin: 0;
+}
+
+/* Carga de la foto del estrechón de manos desde CSS */
+.intro-handshake-bg {
+  width: 400px;
+  height: 250px;
+  background-image: url('../../../../../assets/FEED.png'); /* Apunta a la imagen de estrechón de manos en tus assets */
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Títulos globales de bloques intermedios */
+.section-block-title {
+  color: #2b3d1b;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+/* ==========================================================================
+   2. MONITOREO TÉCNICO (3 COLUMNAS VERDE OPACO)
+   ========================================================================== */
+.monitoring-section {
+  width: 100%;
+  max-width: 1050px;
+  margin-bottom: 60px;
+}
+
+.monitoring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.monitoring-card {
+  background-color: #cadbbf; /* Verde claro opaco */
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-inner-title {
+  color: #2b3d1b;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin: 0 0 15px 0;
+}
+
+.card-inner-desc {
+  color: #121d0a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. RESPUESTAS RÁPIDAS (2 COLUMNAS VERDE OSCURO)
+   ========================================================================== */
+.contingency-section {
+  width: 100%;
+  max-width: 1050px;
+  margin-bottom: 70px;
+}
+
+.contingency-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.dark-green-card {
+  background-color: #4a6136; /* Verde militar/oscuro del bloque intermedio */
+  border-radius: 25px;
+  padding: 35px;
+  box-sizing: border-box;
+}
+
+.dark-green-card .card-inner-title {
+  color: #ffffff;
+}
+
+.dark-green-card .card-inner-desc {
+  color: #ffffff;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   4. COMUNICACIÓN ABIERTA (TARJETAS NARANJAS CON CÍRCULO INFERIOR)
+   ========================================================================== */
+.communication-section {
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.communication-subtitle-orange {
+  color: #df9626;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+.communication-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/* Tarjetas Naranjas de Impacto */
+.orange-card {
+  background-color: #f1b351;
+  border-radius: 25px;
+  padding: 40px 30px 90px 30px; /* Margen inferior amplio para dar espacio al círculo que sobresale */
+  text-align: center;
+  box-sizing: border-box;
+  position: relative; /* Indispensable para posicionar el círculo absoluto */
+}
+
+.orange-card-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+}
+
+.orange-card-desc {
+  color: #ffffff;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Texto de cierre final */
+.closing-footer-text {
+  color: #2b3d1b;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  max-width: 750px;
+  line-height: 1.5;
+  margin: 20px 0 0 0;
+}
+
+/* ==========================================================================
+   5. SISTEMA ADAPTATIVO (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .intro-handshake-bg {
+    width: 100%;
+    max-width: 400px;
+  }
+  .monitoring-grid, .contingency-grid, .communication-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .orange-card {
+    padding-bottom: 80px;
+  }
+}

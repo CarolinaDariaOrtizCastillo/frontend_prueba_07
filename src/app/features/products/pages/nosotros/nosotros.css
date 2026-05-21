@@ -1,0 +1,160 @@
+/* Contenedor general (Fondo crema claro de la app) */
+.about-container {
+  background-color: #eef2e6;
+  padding: 60px 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Estilos de "Nuestra Historia" --- */
+.history-section {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+.about-title {
+  color: #2b3d1b; /* Verde oscuro corporativo */
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.5px;
+}
+
+.history-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.history-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ✅ ACTUALIZADO: Div con imagen de fondo para que cargue obligatoriamente desde assets */
+.history-img-bg {
+  width: 100%;
+  max-width: 420px;
+  height: 380px; /* Altura ideal basada en tu diseño */
+  background-image: url('../../../../../assets/fundadores.png'); /* Ruta relativa exacta */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.history-text p {
+  color: #121d0a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+/* --- Estilos de Misión y Visión --- */
+.pillars-section {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.pillar-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.pillar-title {
+  color: #7fa475; /* Verde pálido de los títulos secundarios */
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pillar-body {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Círculos contenedores de iconos */
+.pillar-circle-icon {
+  width: 130px;
+  height: 130px;
+  background-color: #f1ebd9; /* ✅ Ajustado: Color crema amarillento exacto de tu Figma */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pillar-icon {
+  width: 75px; /* ✅ Un pelín más grande para que resalte el vector */
+  height: 75px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Bloques de texto verde claro */
+.pillar-card {
+  background-color: #cadbbf; /* Verde claro opaco exacto */
+  border-radius: 20px;
+  padding: 30px 35px;
+  width: 100%;
+}
+
+.pillar-card p {
+  color: #121d0a;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Clases para inyectar los iconos desde Assets --- */
+/* ✅ ACTUALIZADO: Apuntando a tus imágenes reales de la carpeta assets */
+.icon-mision {
+  background-image: url('../../../../../assets/crecimiento.png'); 
+}
+
+.icon-vision {
+  background-image: url('../../../../../assets/mejora.png'); /* 👈 Cambia por tu icono de escala/visión cuando lo agregues */
+}
+
+/* --- Responsive para Móviles --- */
+@media (max-width: 800px) {
+  .history-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .history-img-bg {
+    height: 300px; /* Ajustamos la altura de la imagen en móviles */
+  }
+  
+  .pillar-body {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .pillar-circle-icon {
+    width: 110px;
+    height: 110px;
+  }
+}
